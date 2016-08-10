@@ -2,7 +2,7 @@
 class Database {
 	private $host = "localhost";
 	private $dbName = "tododb";
-	private $username = "vodosiosk";
+	private $username = "root";
 	private $password = "";
 	public $conn;
 
