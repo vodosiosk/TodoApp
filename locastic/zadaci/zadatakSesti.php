@@ -6,6 +6,7 @@ $myArray = array_map('intval', explode(',', $_POST['array-txt']));
 //$myArray = array(2, 1, 4, 7, 1, 2, 6, 8);
 
 similarSumGroups($myArray, 3);
+echo "<div id='zadaci-btn' class='btn btn-primary '>Back to zadaci</div>";
 
 function similarSumGroups($array, $num) {
     $descArr = mySort($array, true);

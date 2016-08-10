@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#loader-image').show();
-	showPage('login_form.php'); //mozda tu odlucit na koje ses stranice ide ovisno of #page-title
+	showPage('login_form.php');
 
     //login form button - go to registration form
     $(document).on('click', '#registration-form-btn', function(){
@@ -54,15 +54,16 @@ $(document).ready(function(){
             return false;
     });
 
-    //dashboard button - delete todo list
+    //dashboard and task list  button - delete todo list
     $(document).on('click', '.delete-btn', function(){
         if(confirm('Are you sure?')){
             var listId = $(this).closest('td').find('.list-id').text();
             
+            $('#loader-image').show();
+
             $.post("delete.php", {id: listId})
                 .done(function(data){
-                    console.log(data);
-                    $('#loader-image').show();                    
+                    changePageTitle('Dashboard');                   
                     showPage('dashboard.php');
                 });
         }
@@ -143,7 +144,6 @@ $(document).ready(function(){
 
             $.post("deleteTask.php", {id: taskId})
                 .done(function(data){
-                    console.log(data);
                     $('#loader-image').show();                    
                     showPage('tasks.php?id=' + listId);
                 });
@@ -172,7 +172,6 @@ $(document).ready(function(){
         
         $.post("updateTask.php", $(this).serialize())
             .done(function(data){
-                console.log(data);
                 changePageTitle('Task List');
                 showPage('tasks.php?id=' + listId);
             });
@@ -244,7 +243,7 @@ $(document).ready(function(){
         $.post("createTask.php", $(this).serialize())
             .done(function(data){
                 changePageTitle('Task List');
-                showPage('tasks.php?id=' + listId);
+                showPage('tasks.php?&id=' + listId);
             });
             return false;
     });

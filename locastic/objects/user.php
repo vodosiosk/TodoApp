@@ -1,6 +1,5 @@
 <?php
 class User {
-
 	private $conn;
 	private $tableName = "users";
 
@@ -58,16 +57,9 @@ class User {
 		$stmt->bindParam(":lastName", $this->lastName);
 		$stmt->bindParam(":regDate", $this->regDate);
 		$stmt->bindParam(":status", $this->status);		
-		$stmt->bindParam(":code", $this->code);
-
-		$message =
-		"
-			Click the link below to confirm your email.
-			http://localhost.com/locastic/emailConfirm.php?username=$this->email&code=$this->code
-		";
+		$stmt->bindParam(":code", $this->code);		
 
 		if($stmt->execute()){
-			//mail($this->email, "Confirm email", $message, "From: donotreply@xyz.com");
 			return true;
 		}else{
 			return false;

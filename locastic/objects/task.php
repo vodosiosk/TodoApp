@@ -36,7 +36,7 @@ class Task {
 		$stmt->bindParam(":priority", $this->priority);
 		$stmt->bindParam(":deadline", $this->deadline);
 		$stmt->bindParam(":status", $this->status);
-		$stmt->bindParam(":lists_id", $this->listId);		
+		$stmt->bindParam(":lists_id", $this->listId);
 
 		if($stmt->execute()){
 			return true;
@@ -83,7 +83,7 @@ class Task {
 	function readSortedByParam($id, $param){
 		$query = "SELECT id, name, priority, deadline, status, lists_id 
 				FROM " . $this->tableName . 
-				" WHERE lists_id = :lists_id ORDER BY ".$param." ASC";
+				" WHERE lists_id=:lists_id ORDER BY ".$param." ASC";
 
 		$stmt = $this->conn->prepare($query);
 

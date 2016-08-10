@@ -7,6 +7,7 @@ $array = array_map('intval', explode(',', $_POST['array-txt']));
 
 
 echo "The most frequent element is: " . highestFrequencyElement($array);
+echo "<div id='zadaci-btn' class='btn btn-primary '>Back to zadaci</div>";
 
 function highestFrequencyElement($arr) {
 

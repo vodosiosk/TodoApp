@@ -2,8 +2,6 @@
 session_start();
 include_once 'config/database.php';
 include_once 'objects/todoList.php';
-include_once 'objects/task.php';
-include_once 'ChromePhp.php';
 
 $database = new Database();
 $db = $database->getConnection();

@@ -8,6 +8,8 @@ $aString = $_POST['a-txt'];
 $bString = $_POST['b-txt'];
 
 echo "Najduzi zajednicki substring je: " . longestCommonSubstring($aString, $bString);
+echo "<div id='zadaci-btn' class='btn btn-primary '>Back to zadaci</div>";
+
 
 function longestCommonSubstring($a, $b) {
 	

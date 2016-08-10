@@ -1,4 +1,4 @@
-<?php session_start(); ?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   
@@ -25,16 +25,14 @@
                 </div>                
                 <div class="col-xs-3"></div>
                 <div class="col-xs-3 margin-bottom-1em overflow-hidden">
-                    <!--<p id='current-user' ></p>-->
+                    <p id='current-user' ></p>
                 </div>
                 <div class="col-xs-2 margin-bottom-1em overflow-hidden">
                     <div id='zadaci-btn' class="btn btn-primary ">Zadaci</div>
                 </div>
-                <!--<?php if(isset($_SESSION['userSession'])){ ?>-->
-                    <div class="col-xs-2 margin-bottom-1em overflow-hidden">
-                        <div id='logout-btn' class="btn btn-primary ">Log out</div>
-                    </div>
-                <!--<?php } ?>-->
+                <div class="col-xs-2 margin-bottom-1em overflow-hidden">
+                    <div id='logout-btn' class="btn btn-primary ">Log out</div>
+                </div>
             </div>
         </div>         
         <div id='page-content'></div>        

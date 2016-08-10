@@ -1,7 +1,7 @@
 <?php
 class Database {
 	private $host = "localhost";
-	private $db_name = "tododb";
+	private $dbName = "tododb";
 	private $username = "vodosiosk";
 	private $password = "";
 	public $conn;
@@ -11,7 +11,7 @@ class Database {
 
 		try {
 			$this->conn = new PDO(
-				"mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+				"mysql:host=" . $this->host . ";dbname=" . $this->dbName,
 				$this->username,
 				$this->password
 				);

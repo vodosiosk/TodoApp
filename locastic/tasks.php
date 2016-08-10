@@ -3,7 +3,6 @@ session_start();
 include_once 'config/database.php';
 include_once 'objects/todoList.php';
 include_once 'objects/task.php';
-include_once 'ChromePhp.php';
 
 date_default_timezone_set('Europe/Zagreb');
 
@@ -33,7 +32,8 @@ if($count>0){
         $taskStmt = $task->readSortedByParam($id, $_GET['param']);
     }else{
         $taskStmt = $task->readByList($id);
-    }    
+        
+    }
 
     $todoList->cnt = $taskStmt->rowCount();
     $todoList->todoCnt = $task->readByStatus($id, 0)->rowCount();
@@ -80,26 +80,27 @@ if($count>0){
             echo "<th><div id='task-new-btn' class='btn btn-primary'>New</div></th>";
         echo "</tr>";
 
+
         if($todoList->cnt > 0) {
             while($taskRow = $taskStmt->fetch(PDO::FETCH_ASSOC)){
-            $taskId = $taskRow['id'];
-            extract($taskRow);
+                $taskId = $taskRow['id'];
+                extract($taskRow);
 
-            $task->deadline = $deadline;
-            $daysRemaining = $task->daysRemaining();
+                $task->deadline = $deadline;
+                $daysRemaining = $task->daysRemaining();
 
-            echo "<tr>";
-                echo "<td>{$name}</td>";
-                echo "<td>{$priority}</td>";
-                echo "<td>{$deadline}</td>";
-                echo "<td>{$status}</td>";
-                echo "<td>{$daysRemaining}</td>";
-                echo "<td style='text-align:center;'>";
-                    echo "<div class='task-id display-none'>{$taskId}</div>";
-                    echo "<div class='btn btn-info task-edit-btn margin-right-1em'>Edit</div>";
-                    echo "<div class='btn btn-danger task-delete-btn'>Delete</div>";                        
-                echo "</td>";
-            echo "</tr>";
+                echo "<tr>";
+                    echo "<td>{$name}</td>";
+                    echo "<td>{$priority}</td>";
+                    echo "<td>{$deadline}</td>";
+                    echo "<td>{$status}</td>";
+                    echo "<td>{$daysRemaining}</td>";
+                    echo "<td style='text-align:center;'>";
+                        echo "<div class='task-id display-none'>{$taskId}</div>";
+                        echo "<div class='btn btn-info task-edit-btn margin-right-1em'>Edit</div>";
+                        echo "<div class='btn btn-danger task-delete-btn'>Delete</div>";                        
+                    echo "</td>";
+                echo "</tr>";
             }        
         }else{
             echo "<tr class='alert alert-info'>";

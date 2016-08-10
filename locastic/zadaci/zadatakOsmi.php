@@ -4,6 +4,8 @@ $dir = $_POST['path-txt'];
 
 
 recursiveFolderSearch($dir);
+echo "<div id='zadaci-btn' class='btn btn-primary '>Back to zadaci</div>";
+
 
 function recursiveFolderSearch($dir) {
 
